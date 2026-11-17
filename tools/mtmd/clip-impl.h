@@ -8,6 +8,7 @@
 #include <climits>
 #include <cmath>
 #include <cstdarg>
+#include <cstdlib>
 #include <cinttypes>
 #include <string>
 #include <map>

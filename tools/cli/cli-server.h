@@ -1,6 +1,7 @@
 #pragma once
 
 #include <thread>
+#include <cstdlib>
 
 #include "http.h"
 
