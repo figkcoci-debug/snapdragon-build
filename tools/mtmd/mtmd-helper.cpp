@@ -17,6 +17,7 @@
 #include <algorithm>
 #include <cinttypes>
 #include <vector>
+#include <cstdlib>
 
 //#define MTMD_AUDIO_DEBUG
 

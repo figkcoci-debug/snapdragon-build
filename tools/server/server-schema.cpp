@@ -1,6 +1,7 @@
 #include "server-schema.h"
 
 #include "json-schema-to-grammar.h"
+#include <cstdlib>
 
 namespace server_schema {
 

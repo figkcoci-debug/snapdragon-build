@@ -19,6 +19,7 @@
 #include <string>
 #include <thread>
 #include <vector>
+#include <cstdlib>
 
 #if defined(__linux__)
 #include <sys/types.h>

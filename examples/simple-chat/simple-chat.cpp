@@ -2,6 +2,7 @@
 #include <clocale>
 #include <cstdio>
 #include <cstring>
+#include <cstdlib>
 #include <iostream>
 #include <string>
 #include <vector>

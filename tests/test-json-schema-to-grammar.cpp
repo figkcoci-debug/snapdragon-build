@@ -9,6 +9,7 @@
 #include "json.h"
 
 #include <cassert>
+#include <cstdlib>
 #include <fstream>
 #include <sstream>
 #include <regex>

@@ -8,6 +8,7 @@
 #include "../src/llama-grammar.h"
 
 #include <cassert>
+#include <cstdlib>
 
 static const char * type_str(llama_gretype type) {
     switch (type) {
