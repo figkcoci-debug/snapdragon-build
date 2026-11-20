@@ -15,7 +15,11 @@ on:
       skip_s390x:
         description: "Skip the s390x build target (useful for fast test runs that do not need the IBM Z runner)"
         type: boolean
-        default: false
+        default: true
+      skip_musa:
+        description: "Skip the MUSA build target (mp_21 shared memory limit rejects fwht.cu)"
+        type: boolean
+        default: true
   schedule:
     # Rebuild daily rather than on every push because it is expensive
     - cron: '12 4 * * *'
@@ -78,7 +82,8 @@ jobs:
         id: matrices
         shell: bash
         env:
-          SKIP_S390X: ${{ inputs.skip_s390x || 'false' }}
+          SKIP_S390X: ${{ (github.event_name != 'workflow_dispatch' || inputs.skip_s390x == true) && 'true' || 'false' }}
+          SKIP_MUSA: ${{ (github.event_name != 'workflow_dispatch' || inputs.skip_musa == true) && 'true' || 'false' }}
         run: |
           set -euo pipefail
 
@@ -103,6 +108,11 @@ jobs:
 
           if [ "${SKIP_S390X}" = "true" ]; then
             jq 'map(select(.platforms != "linux/s390x"))' build-matrix.json > build-matrix.json.tmp
+            mv build-matrix.json.tmp build-matrix.json
+          fi
+
+          if [ "${SKIP_MUSA}" = "true" ]; then
+            jq 'map(select(.tag != "musa"))' build-matrix.json > build-matrix.json.tmp
             mv build-matrix.json.tmp build-matrix.json
           fi
 
