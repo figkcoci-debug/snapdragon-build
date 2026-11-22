@@ -178,7 +178,7 @@ jobs:
           ) > /etc/apt/apt.conf.d/99snapshot-repos
 
           apt-get update
-          apt-get install -y ca-certificates debian-ports-archive-keyring cmake git zip
+          apt-get install -y ca-certificates debian-ports-archive-keyring cmake git zip nodejs npm
           dpkg --add-architecture loong64
 
           # Add arch-specific repositories for non-amd64 architectures
@@ -201,6 +201,7 @@ jobs:
                          -DLLAMA_BUILD_EXAMPLES=ON \
                          -DLLAMA_BUILD_TOOLS=ON \
                          -DLLAMA_BUILD_TESTS=OFF \
+                         -DLLAMA_BUILD_UI=ON \
                          -DCMAKE_SYSTEM_NAME=Linux \
                          -DCMAKE_SYSTEM_PROCESSOR=loongarch64 \
                          -DCMAKE_C_COMPILER=loongarch64-linux-gnu-gcc-14 \
@@ -233,7 +234,7 @@ jobs:
           ) > /etc/apt/apt.conf.d/99snapshot-repos
 
           apt-get update
-          apt-get install -y ca-certificates debian-ports-archive-keyring cmake git zip
+          apt-get install -y ca-certificates debian-ports-archive-keyring cmake git zip nodejs npm
           dpkg --add-architecture loong64
 
           # Add arch-specific repositories for non-amd64 architectures
@@ -260,6 +261,7 @@ jobs:
                          -DLLAMA_BUILD_EXAMPLES=ON \
                          -DLLAMA_BUILD_TOOLS=ON \
                          -DLLAMA_BUILD_TESTS=OFF \
+                         -DLLAMA_BUILD_UI=ON \
                          -DCMAKE_SYSTEM_NAME=Linux \
                          -DCMAKE_SYSTEM_PROCESSOR=loongarch64 \
                          -DCMAKE_C_COMPILER=loongarch64-linux-gnu-gcc-14 \
@@ -305,6 +307,7 @@ jobs:
                          -DGGML_CPU_REPACK=OFF \
                          -DLLAMA_BUILD_TOOLS=ON \
                          -DLLAMA_BUILD_TESTS=OFF \
+                         -DLLAMA_BUILD_UI=ON \
                          -DGGML_CPU_RISCV64_SPACEMIT=ON \
                          -DGGML_RVV=ON \
                          -DGGML_RV_ZVFH=ON \
